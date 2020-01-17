@@ -19,7 +19,7 @@
                 <option value="add">Add Project</option>
                 <option value="delete">Delete Project</option>
             </select>
-            <input type="text" name="new_project" id="project" placeholder="Enter concise project name of not more than 50 characters" maxlength="50">
+            <input type="text" name="new_project" id="project" placeholder="Enter New Project to create Exsiting to mark completed" maxlength="50">
             <button type="button" id="add_project" onclick="treatProject()">Save</button>
         </div>
         <!-- Add new Action -->
@@ -37,16 +37,16 @@
                 <option value="Select">Select</option>
                <!-- <option value="project A"> -->
             </select>
-            <input type="text" name="new_action" id="new_action" placeholder="Enter concise action name of not more than 50 characters" maxlength="50">
+            <input type="text" name="new_action" id="new_action" placeholder="Enter new/existing Actions" maxlength="50">
             <button type="button" id="add_action" onclick="treatAction()">Save</button>
         </div>
     </section>
 
-    <h2>View Projects and Actions</h2>
+    <h3 style="text-align: center;">View Projects and Actions</h3>
     <section class="list">
         <!-- projects and actions view -->
         <div class="project_list">
-            <h3 style="display: inline;">Select project: </h3>
+            <h5 style="display: inline;">Select project: </h5>
             <select name="project_list" id="project_list" style="display: inline-block;" onchange="showActions()">
                 <option value="Select">Select</option>
                 <!-- project list -->
@@ -60,7 +60,7 @@
     </section>  
     <footer>
         <p>
-            <button type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
+            <button style="width: 50%;text-align: center;" type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
         </p>
         <p>Created with &hearts; by Oladipo, Abdullah Akinwumi (@abdulloooh)</p>
         <p>This project is still under development</p>

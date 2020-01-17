@@ -61,4 +61,14 @@
     .add_new input{
         width: 100vw;
     }
+    .container{
+        margin: 1vw;
+        width: 100%;
+        overflow: visible;
+        margin-left: 10px;
+    }
+    select, input, button{
+        margin: 2vw;
+        width: 100%;
+    }
 }

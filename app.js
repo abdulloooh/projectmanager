@@ -72,8 +72,8 @@ function treatProject(){
     }
     function updateClientProjects(){
         //clear the content first
-        document.getElementById("project_list").innerHTML="";
-        document.getElementById("projects").innerHTML="";
+        document.getElementById("project_list").innerHTML="<option value='Select'>Select</option>";
+        document.getElementById("projects").innerHTML=""<option value='Select'>Select</option>";";
         storage = projectStorage("fetch");
         console.log(storage);
         projects = Object.keys(storage);
