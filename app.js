@@ -39,19 +39,37 @@ function treatProject(){
     }
 
     function treatAction(){
-        updateClientProjects();
+        storage = projectStorage("fetch");
+        // updateClientProjects();
         //waht action to perform
         let toDoAction = document.getElementById("action_option");
-        let opt = toDoAction.options[toDoAction.selectedIndex];
+        let opt = toDoAction.options[toDoAction.selectedIndex].value;
         //what project to perform it on
         let onProject = document.getElementById("projects");
-        let optP = onProject.options[onProject.selectedIndex];
+        let optP = onProject.options[onProject.selectedIndex].value;  //selected project title
         let action = document.getElementById("new_action").value;
-
+        switch(opt){
+            case "add":
+                console.log(optP);
+                console.log(typeof(optP));
+                console.log(storage.optP);
+                //if project not found
+                if(!storage[optP]){break}
+                storage[optP].push(action);
+                break;
+            case "delete":
+                if(!storage[optP]){return}
+                let getIndex = storage[optP].indexOf(action); //get index of the action
+                storage.splice(getindex,1);  //remove the action
+                break;
+            default:
+                break;
+        }
+    projectStorage("save");
+    console.log(projectStorage("fetch"));
     }
     function updateClientProjects(){
         storage = projectStorage("fetch");
-        console.log('here');
         console.log(storage);
         projects = Object.keys(storage);
         console.log(projects)
@@ -67,6 +85,6 @@ function treatProject(){
             //bottom project list
             document.getElementById("project_list").appendChild(element1);
             //top project list
-            document.getElementById("projectss").appendChild(element2);
+            document.getElementById("projects").appendChild(element2);
         }
     }
