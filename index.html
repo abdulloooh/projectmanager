@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="abdulloooh">   
+    <meta name="description" content="An easy to use project management application based on Project and actions">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>Project Management</title>
+</head>
+<body class="container">
+    <section class="add_new">
+        <!-- Add new project -->
+        <div>
+            <select name="options" id="options">
+                <option value="add">Add Project</option>
+                <option value="delete">Delete Project</option>
+                <option value="rename">Rename Project</option>
+            </select>
+            <input type="text" name="new_project" id="new_project" placeholder="Enter concise project name of not more than 50 characters" maxlength="50">
+            <button type="button" id="add_project">Save</button>
+        </div>
+        <!-- Add new Action -->
+        <div>
+            <p>Select Project</p>
+            <!-- list of projects -->
+            <input list="projects" >
+            <datalist id="projects">
+                <!-- <option value="project A"> -->
+
+            </datalist>
+            <select name="actions" id="actions">
+                <option value="add">Add Actions</option>
+                <option value="delete">Delete Actions</option>
+                <option value="rename">Rename Actions</option>
+            </select>
+            <input type="text" name="new_action" id="new_action" placeholder="Enter concise action name of not more than 50 characters" maxlength="50">
+            <button type="button" id="add_action">Save</button>
+        </div>
+    </section>
+
+    <section>
+        <!-- projects and actions view -->
+        <h3>View projects: </h3>
+        <select name="project_list" id="project_list">
+            <option value="project A">project A</option>
+            <!-- project list -->
+        </select>
+        <div id="actions_list">
+            <p>Action 1</p>
+            <!-- actions list -->
+        </div>
+    </section>
+
+
+<script src="app.js"></script>
+</body>
+</html>
