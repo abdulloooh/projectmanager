@@ -36,6 +36,7 @@ function treatProject(){
 
         projectStorage("save");
         updateClientProjects();
+        showActions();
     }
 
     function treatAction(){
@@ -67,6 +68,7 @@ function treatProject(){
         }
     projectStorage("save");
     console.log(projectStorage("fetch"));
+    showActions();
     }
     function updateClientProjects(){
         storage = projectStorage("fetch");
@@ -88,3 +90,22 @@ function treatProject(){
             document.getElementById("projects").appendChild(element2);
         }
     }
+function showActions(){
+    storage = projectStorage("fetch");
+    //get selected project
+    let project = document.getElementById("project_list");
+    let selected_project = project.options[project.selectedIndex].value; 
+    console.log(selected_project);
+    let get_content = storage[selected_project];
+    console.log(get_content);
+    console.log('getted');
+    if(!get_content){return}   //If no content present
+    //create contents to be added
+   for(let  i=0;i<get_content.length;i++){
+    let element = document.createElement("p");
+    element.setAttribute("class","actions_displayed");
+    let attribute = document.createTextNode(get_content);
+    element.appendChild(attribute);
+    document.getElementById("actions_list").appendChild(element);
+   }
+}
