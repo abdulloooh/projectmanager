@@ -27,7 +27,7 @@ function checkProject(x){
 
 function treatProject(){
     storage = projectStorage("fetch");
-    // console.log(storage);
+    // //console.log(storage);
     if(storage == undefined){storage = {}}
     let toDoProjcect = document.getElementById("project_option");
     let opt = toDoProjcect.options[toDoProjcect.selectedIndex];
@@ -38,15 +38,15 @@ function treatProject(){
             //check if project already exists
             let check = checkProject(project);
             if (check == true){
-                console.log('here');
+                //console.log('here');
                 alert("Project already exists");
                 return;
             }
-            console.log('passed');
+            //console.log('passed');
             if(!storage){storage={}}
             storage[project]= []
-            console.log(opt.value);
-            console.log(storage);
+            //console.log(opt.value);
+            //console.log(storage);
             break;
         case "delete":
             //for delete
@@ -73,9 +73,9 @@ function treatProject(){
         let action = document.getElementById("new_action").value;
         switch(opt){
             case "add":
-                console.log(optP);
-                console.log(typeof(optP));
-                console.log(storage.optP);
+                //console.log(optP);
+                //console.log(typeof(optP));
+                //console.log(storage.optP);
                 //if project not found
                 if(!storage[optP]){break}
                 storage[optP].push(action);
@@ -89,7 +89,7 @@ function treatProject(){
                 break;
         }
     projectStorage("save");
-    console.log(projectStorage("fetch"));
+    //console.log(projectStorage("fetch"));
     showActions();
     }
     function updateClientProjects(){
@@ -97,10 +97,10 @@ function treatProject(){
         document.getElementById("project_list").innerHTML="<option value='-choose a project- '' style='opacity: 0.3;''>-choose a project-</option>";
         document.getElementById("projects").innerHTML="<option value=-choose a project -'' style='opacity: 0.3;''>-choose a project-</option>";
         storage = projectStorage("fetch");
-        console.log(storage);
+        //console.log(storage);
         if(!storage){return}
         projects = Object.keys(storage);
-        console.log(projects)
+        //console.log(projects)
         for(let i=0;i<projects.length;i++){
             let element1 = document.createElement("option");
             let element2 = document.createElement("option");
@@ -121,14 +121,14 @@ function showActions(){
     //clear current state of action box
     document.getElementById("actions_list").innerHTML = "";
 
-    console.log('getted');
+    //console.log('getted');
     //get selected project
     let project = document.getElementById("project_list");
     let selected_project = project.options[project.selectedIndex].value; 
-    console.log(selected_project);
+    //console.log(selected_project);
     if(!storage){return}
     get_content = storage[selected_project];
-    console.log(get_content);
+    //console.log(get_content);
     if(!get_content){return}   //If no content present
     //create contents to be added
    for(let  i=0;i<get_content.length;i++){
