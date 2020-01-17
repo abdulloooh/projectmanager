@@ -61,7 +61,7 @@ function treatProject(){
             case "delete":
                 if(!storage[optP]){return}
                 let getIndex = storage[optP].indexOf(action); //get index of the action
-                storage.splice(getindex,1);  //remove the action
+                storage[optP].splice(getIndex,1);  //remove the action
                 break;
             default:
                 break;

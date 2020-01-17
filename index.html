@@ -42,6 +42,7 @@
         </div>
     </section>
 
+    <h2>View Projects and Actions</h2>
     <section class="list">
         <!-- projects and actions view -->
         <div class="project_list">
@@ -56,8 +57,14 @@
             <!-- actions list -->
             <!-- class of """actions_displayed""""" is use here -->
         </div>
-    </section>
-
+    </section>  
+    <footer>
+        <p>
+            <button type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
+        </p>
+        <p>Created with &hearts; by Oladipo, Abdullah Akinwumi (@abdulloooh)</p>
+        <p>This project is still under development</p>
+    </footer>
 
 <script src="app.js"></script>
 </body>

@@ -46,3 +46,19 @@
     border: 2px solid grey;
     padding: 2vw;
 }
+.reset{
+    background-color: red;;
+    margin:3vw 0;
+    width:20%;
+    height: 40px;;
+}
+@media(max-width:792px){
+    .list, .action_list,.add_new{
+        border: none;
+    }
+}
+@media(max-width:400px){
+    .add_new input{
+        width: 100vw;
+    }
+}
