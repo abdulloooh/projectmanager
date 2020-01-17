@@ -14,20 +14,19 @@
         <!-- Add new project -->
         <div class="select_project">
             <h3>Project</h3>
-            <select name="options" id="options">
+            <select name="options" id="project_option">
                 <option value="what to do?">What to do?</option>
                 <option value="add">Add Project</option>
                 <option value="delete">Delete Project</option>
-                <option value="rename">Rename Project</option>
             </select>
-            <input type="text" name="new_project" id="new_project" placeholder="Enter concise project name of not more than 50 characters" maxlength="50">
-            <button type="button" id="add_project">Save</button>
+            <input type="text" name="new_project" id="project" placeholder="Enter concise project name of not more than 50 characters" maxlength="50">
+            <button type="button" id="add_project" onclick="treatProject()">Save</button>
         </div>
         <!-- Add new Action -->
         <div class="select_action">
             <h3>Actions</h3>
             <!-- list of projects -->
-            <select name="actions" id="actions">
+            <select name="actions" id="action_option">
                 <option value="what to do?">What to do?</option>
                 <option value="add">Add Actions</option>
                 <option value="delete">Delete Actions</option>
@@ -40,7 +39,7 @@
 
             </datalist>
             <input type="text" name="new_action" id="new_action" placeholder="Enter concise action name of not more than 50 characters" maxlength="50">
-            <button type="button" id="add_action">Save</button>
+            <button type="button" id="add_action" onclick="treatAction()">Save</button>
         </div>
     </section>
 
@@ -49,12 +48,12 @@
         <div class="project_list">
             <h3 style="display: inline;">Select project: </h3>
             <select name="project_list" id="project_list" style="display: inline-block;">
-                <option value="project A">project A</option>
+                <option value="Select">Select</option>
                 <!-- project list -->
             </select>
         </div>
         <div id="actions_list" class="action_list">
-            <p>Action 1</p>
+            <!-- <p>Action</p> -->
             <!-- actions list -->
         </div>
     </section>
