@@ -12,6 +12,17 @@ function projectStorage(what){
     //clear storage
     else if (what="reset"){localStorage.clear()}
 }
+
+//chcek if project already exists
+function checkProject(x){
+    storage = projectStorage("fetch");
+    let projectss = Object.keys(storage);
+    for(let i = 0;i<projectss.length;i++){
+        if( projectss[i] == x){return true}
+    }
+    return false
+}
+
 function treatProject(){
     storage = projectStorage("fetch");
     // console.log(storage);
@@ -22,6 +33,14 @@ function treatProject(){
     switch(opt.value){
         case "add":
             //for add
+            //check if project already exists
+            let check = checkProject(project);
+            if (check == true){
+                console.log('here');
+                alert("Project already exists");
+                return;
+            }
+            console.log('passed');
             storage[project]= []
             console.log(opt.value);
             console.log(storage);
@@ -73,7 +92,7 @@ function treatProject(){
     function updateClientProjects(){
         //clear the content first
         document.getElementById("project_list").innerHTML="<option value='Select'>Select</option>";
-        document.getElementById("projects").innerHTML=""<option value='Select'>Select</option>";";
+        document.getElementById("projects").innerHTML="<option value='Select'>Select</option>";
         storage = projectStorage("fetch");
         console.log(storage);
         projects = Object.keys(storage);
