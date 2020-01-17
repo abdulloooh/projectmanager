@@ -3,6 +3,14 @@ var storage = {};
 // var toDoProjcect = document.getElementById("project_option");
 // var project = document.getElementById("project");
 
+function projectStorage(what){
+    //save in storage
+    if(what = "save"){localStorage.setItem('userProject',JSON.stringify(storage))}
+    //fetch from storage
+    else if(what = "fetch"){JSON.parse(localStorage.getItem("userProject"))}
+    //clear storage
+    else if (what="reset"){localStorage.clear()}
+}
 function treatProject(){
     let toDoProjcect = document.getElementById("project_option");
     let opt = toDoProjcect.options[toDoProjcect.selectedIndex];
