@@ -16,10 +16,12 @@ function projectStorage(what){
 //chcek if project already exists
 function checkProject(x){
     storage = projectStorage("fetch");
+ if(storage){
     let projectss = Object.keys(storage);
     for(let i = 0;i<projectss.length;i++){
-        if( projectss[i] == x){return true}
+    if( projectss[i] == x){return true}
     }
+ }
     return false
 }
 
@@ -41,6 +43,7 @@ function treatProject(){
                 return;
             }
             console.log('passed');
+            if(!storage){storage={}}
             storage[project]= []
             console.log(opt.value);
             console.log(storage);
@@ -95,6 +98,7 @@ function treatProject(){
         document.getElementById("projects").innerHTML="<option value='Select'>Select</option>";
         storage = projectStorage("fetch");
         console.log(storage);
+        if(!storage){return}
         projects = Object.keys(storage);
         console.log(projects)
         for(let i=0;i<projects.length;i++){
@@ -122,6 +126,7 @@ function showActions(){
     let project = document.getElementById("project_list");
     let selected_project = project.options[project.selectedIndex].value; 
     console.log(selected_project);
+    if(!storage){return}
     get_content = storage[selected_project];
     console.log(get_content);
     if(!get_content){return}   //If no content present
