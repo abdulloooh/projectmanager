@@ -71,6 +71,9 @@ function treatProject(){
     showActions();
     }
     function updateClientProjects(){
+        //clear the content first
+        document.getElementById("project_list").innerHTML="";
+        document.getElementById("projects").innerHTML="";
         storage = projectStorage("fetch");
         console.log(storage);
         projects = Object.keys(storage);
@@ -92,19 +95,22 @@ function treatProject(){
     }
 function showActions(){
     storage = projectStorage("fetch");
+    //clear current state of action box
+    document.getElementById("actions_list").innerHTML = "";
+
+    console.log('getted');
     //get selected project
     let project = document.getElementById("project_list");
     let selected_project = project.options[project.selectedIndex].value; 
     console.log(selected_project);
-    let get_content = storage[selected_project];
+    get_content = storage[selected_project];
     console.log(get_content);
-    console.log('getted');
     if(!get_content){return}   //If no content present
     //create contents to be added
    for(let  i=0;i<get_content.length;i++){
     let element = document.createElement("p");
     element.setAttribute("class","actions_displayed");
-    let attribute = document.createTextNode(get_content);
+    let attribute = document.createTextNode(get_content[i]);
     element.appendChild(attribute);
     document.getElementById("actions_list").appendChild(element);
    }
