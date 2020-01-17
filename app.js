@@ -94,8 +94,8 @@ function treatProject(){
     }
     function updateClientProjects(){
         //clear the content first
-        document.getElementById("project_list").innerHTML="<option value='Select'>Select</option>";
-        document.getElementById("projects").innerHTML="<option value='Select'>Select</option>";
+        document.getElementById("project_list").innerHTML="<option value='-choose a project- '' style='opacity: 0.3;''>-choose a project-</option>";
+        document.getElementById("projects").innerHTML="<option value=-choose a project -'' style='opacity: 0.3;''>-choose a project-</option>";
         storage = projectStorage("fetch");
         console.log(storage);
         if(!storage){return}
