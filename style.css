@@ -47,9 +47,9 @@
     padding: 2vw;
 }
 .reset{
-    background-color: red;;
+    background-color: blue;
     margin:3vw 0;
-    width:20%;
+    width:100px;
     height: 40px;;
 }
 @media(max-width:792px){
