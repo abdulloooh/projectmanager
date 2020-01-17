@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Project Management</title>
 </head>
-<body class="container">
+<body class="container" onload="updateClientProjects()">
     <section class="add_new">
         <!-- Add new project -->
         <div class="select_project">
@@ -33,11 +33,10 @@
                 <option value="rename">Rename Actions</option>
             </select>
             <p>Select Project</p>
-            <input list="projects" >
-            <datalist id="projects">
-                <!-- <option value="project A"> -->
-
-            </datalist>
+            <select name="projectss" id="projectss" style="display: inline-block;">
+                <option value="Select">Select</option>
+               <!-- <option value="project A"> -->
+            </select>
             <input type="text" name="new_action" id="new_action" placeholder="Enter concise action name of not more than 50 characters" maxlength="50">
             <button type="button" id="add_action" onclick="treatAction()">Save</button>
         </div>
