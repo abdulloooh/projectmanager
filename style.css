@@ -1,0 +1,48 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.container{
+    width: 70%;
+    margin: auto;
+    margin-top: 1vw;
+    /* background-color: black; */
+}
+.add_new {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    border:  2px solid black;
+    padding: 1vw;
+    margin-bottom: 3vw;
+}
+.add_new select, .add_new input,.add_new   button{
+    display: block;
+    margin-bottom: 1vw;
+    width: 100%;
+    height: 30px;
+}
+.add_new input{
+    width: 500px;
+}
+.list{
+    border: 2px solid black;
+    padding: 2vw;
+}
+.project_list{
+    text-align: center;
+}
+.list input, .list select{
+    width: 200px;
+    height: 50px;
+    margin: 0 1vw;
+}
+.project_list{
+    margin-bottom: 4vw;
+}
+.action_list{
+    border: 2px solid grey;
+    padding: 2vw;
+}
