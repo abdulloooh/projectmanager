@@ -20,7 +20,7 @@
                 <option value="add">Add Project</option>
                 <option value="delete">Delete Project</option>
             </select>
-            <input type="text" name="new_project" id="project" placeholder="Enter New Project to create or Existing  or mark completed" maxlength="50">
+            <input type="text" name="new_project" id="project" placeholder="Enter New Project to create or Existing  or mark completed">
             <button type="button" id="add_project" onclick="treatProject()" class="save">Save</button>
         </div>
         <!-- Add new Action -->
@@ -38,7 +38,7 @@
                 <option value="-choose a project- " style="opacity: 0.3;">-choose a project-</option>
                <!-- <option value="project A"> -->
             </select>
-            <input type="text" name="new_action" id="new_action" placeholder="Enter new action or existing to delete or mark done" maxlength="50">
+            <input type="text" name="new_action" id="new_action" placeholder="Enter new action or existing to delete or mark done">
             <button type="button" id="add_action" onclick="treatAction()" class="save">Save</button>
         </div>
     </section>
@@ -49,15 +49,15 @@
         <div class="project_list">
             <h3 style="display: inline;">Select project: </h3>
             <select name="project_list" id="project_list" style="display: inline-block;" onchange="showActions()">
-                <option value="Select">Select</option>
+                <!-- <option value="Select">Select</option> -->
                 <!-- project list -->
             </select>
         </div>
-        <div id="actions_list" class="action_list">
+        <ol id="actions_list" class="action_list">
             <!-- <p>Action</p> -->
             <!-- actions list -->
             <!-- class of """actions_displayed""""" is use here -->
-        </div>
+        </ol>
     </section>  
     <footer>
         <p>

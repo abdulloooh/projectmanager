@@ -92,9 +92,12 @@ function treatProject(){
     //console.log(projectStorage("fetch"));
     showActions();
     }
+    function clearActions(){
+
+    }
     function updateClientProjects(){
         //clear the content first
-        document.getElementById("project_list").innerHTML="<option value='-choose a project- '' style='opacity: 0.3;''>-choose a project-</option>";
+        document.getElementById("project_list").innerHTML="<option  value='-choose a project- '' style='opacity: 0.3;''>-choose a project-</option>";
         document.getElementById("projects").innerHTML="<option value=-choose a project -'' style='opacity: 0.3;''>-choose a project-</option>";
         storage = projectStorage("fetch");
         //console.log(storage);
@@ -129,10 +132,14 @@ function showActions(){
     if(!storage){return}
     get_content = storage[selected_project];
     //console.log(get_content);
-    if(!get_content){return}   //If no content present
+    if(!get_content){
+        // document.getElementById("actions_list").style.background="unset";
+        // document.getElementById("actions_list").style.border="none";
+        return
+    }   //If no content present
     //create contents to be added
    for(let  i=0;i<get_content.length;i++){
-    let element = document.createElement("p");
+    let element = document.createElement("li");
     element.setAttribute("class","actions_displayed");
     let attribute = document.createTextNode(get_content[i]);
     element.appendChild(attribute);
