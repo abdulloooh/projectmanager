@@ -50,12 +50,12 @@ function treatProject(){
             storage[project.value]= []
             //console.log(opt.value);
             //console.log(storage);
-            project.value = " ";
+            project.value = "";
             break;
         case "delete":
             //for delete
             delete storage[project.value];
-            project.value = " ";
+            project.value = "";
             break;
         default:
             break;
@@ -75,20 +75,39 @@ function treatProject(){
         //what project to perform it on
         let onProject = document.getElementById("projects");
         let optP = onProject.options[onProject.selectedIndex].value;  //selected project title
-        let action = document.getElementById("new_action").value;
+        //if no ptoject is selected, stop executing
+        if(optP == "-choose"){
+            alert("Choose a project to process");
+            return;
+        }
+        let action = document.getElementById("new_action");
+        let getIndex = storage[optP].indexOf(action.value);
         switch(opt){
+            case "-select an option-":  //if no option is selected
+                alert("Please select an action option to process");
+                break;
             case "add":
                 //console.log(optP);
                 //console.log(typeof(optP));
                 //console.log(storage.optP);
                 //if project not found
                 if(!storage[optP]){break}
-                storage[optP].push(action);
+                //if project found, check if action already exists
+                if(storage[optP]){
+                    // let check_action = storage[optP].indexOf(action.value);
+                    if(getIndex != -1){
+                        alert("Action already added");
+                        return;
+                    }
+                }
+                storage[optP].push(action.value);
+                action.value = "";
                 break;
             case "delete":
                 if(!storage[optP]){return}
-                let getIndex = storage[optP].indexOf(action); //get index of the action
+                // let getIndex = storage[optP].indexOf(action.value); //get index of the action
                 storage[optP].splice(getIndex,1);  //remove the action
+                action.value = "";
                 break;
             default:
                 break;
