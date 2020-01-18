@@ -19,10 +19,10 @@ function checkProject(x){
  if(storage){
     let projectss = Object.keys(storage);
     for(let i = 0;i<projectss.length;i++){
-    if( projectss[i] == x){return true}
+    if( projectss[i].trim() == x){return true} //true means project exist
     }
  }
-    return false
+    return false //false means cannot find project
 }
 
 function treatProject(){
@@ -32,6 +32,12 @@ function treatProject(){
     let toDoProjcect = document.getElementById("project_option");
     let opt = toDoProjcect.options[toDoProjcect.selectedIndex];
     let project = document.getElementById("project");
+    //avoid empty input
+    if(project.value.trim() == ""){
+        alert("Arrrgh!   Empty input, Enter your project's name");
+        project.focus();
+        return;
+    }
     switch(opt.value){
         case "-select an option-":   //when no option is selected
             alert("Please select an option for the project to continue");
@@ -39,28 +45,37 @@ function treatProject(){
         case "add":
             //for add
             //check if project already exists
-            let check = checkProject(project.value);
+            let check = checkProject(project.value.trim());
             if (check == true){
                 //console.log('here');
                 alert("Project already exists");
+                project.focus();
                 return;
             }
             //console.log('passed');
             if(!storage){storage={}}
-            storage[project.value]= []
+            storage[project.value.trim()]= []
             //console.log(opt.value);
             //console.log(storage);
             project.value = "";
             break;
         case "delete":
+            console.log("here1");
             //for delete
+            //check if project exists
+            if(checkProject(project.value) == false){
+                console.log("here2");
+                alert("This project does not exist or has been deleted")
+                break;
+            }
             delete storage[project.value];
             project.value = "";
+            project.focus();
             break;
         default:
             break;
         }
-
+        console.log("here3");
         projectStorage("save");
         updateClientProjects();
         showActions();
@@ -81,6 +96,12 @@ function treatProject(){
             return;
         }
         let action = document.getElementById("new_action");
+        //prevent empty input
+        if(action.value.trim() == ""){
+            alert("Arrrgh!   Empty input, Enter your Action's name");
+            action.focus();
+            return;
+        }
         let getIndex = storage[optP].indexOf(action.value);
         switch(opt){
             case "-select an option-":  //if no option is selected
@@ -96,7 +117,8 @@ function treatProject(){
                 if(storage[optP]){
                     // let check_action = storage[optP].indexOf(action.value);
                     if(getIndex != -1){
-                        alert("Action already added");
+                        alert("This Action has already been added");
+                        action.focus();
                         return;
                     }
                 }
@@ -105,6 +127,12 @@ function treatProject(){
                 break;
             case "delete":
                 if(!storage[optP]){return}
+                //check if actions still exists
+                if(getIndex == -1){
+                    alert("Oops! This action does not exist or has already been deleted");
+                    action.focus();
+                    return;
+                }
                 // let getIndex = storage[optP].indexOf(action.value); //get index of the action
                 storage[optP].splice(getIndex,1);  //remove the action
                 action.value = "";

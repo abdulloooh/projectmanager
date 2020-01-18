@@ -57,6 +57,11 @@
     flex-direction: column;
     justify-content: space-between;
 }
+.select_action{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
 .list input, .list select{
     width: 200px;
     height: 30px;
