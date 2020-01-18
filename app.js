@@ -31,12 +31,15 @@ function treatProject(){
     if(storage == undefined){storage = {}}
     let toDoProjcect = document.getElementById("project_option");
     let opt = toDoProjcect.options[toDoProjcect.selectedIndex];
-    let project = document.getElementById("project").value;
+    let project = document.getElementById("project");
     switch(opt.value){
+        case "-select an option-":   //when no option is selected
+            alert("Please select an option for the project to continue");
+            break;
         case "add":
             //for add
             //check if project already exists
-            let check = checkProject(project);
+            let check = checkProject(project.value);
             if (check == true){
                 //console.log('here');
                 alert("Project already exists");
@@ -44,13 +47,15 @@ function treatProject(){
             }
             //console.log('passed');
             if(!storage){storage={}}
-            storage[project]= []
+            storage[project.value]= []
             //console.log(opt.value);
             //console.log(storage);
+            project.value = " ";
             break;
         case "delete":
             //for delete
-            delete storage[project];
+            delete storage[project.value];
+            project.value = " ";
             break;
         default:
             break;

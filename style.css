@@ -17,6 +17,7 @@
     border:  2px solid black;
     padding: 1vw;
     margin-bottom: 3vw;
+    border-radius: 1vw;
 }
 .save{
     text-align: center;
