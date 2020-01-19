@@ -54,11 +54,11 @@ html{
     /* flex-direction: row; */
     /* justify-content: space-between; */
     /* border-radius: 1vw;   */
-    text-align: center;
+    /* text-align: center; */
 }
-.list{
-    text-align: center;
-    /* width: ; */
+.tab_indent{
+    text-align: justify;
+    text-indent: 30%;
 }
 .project_list{
     /* text-align: center; */
@@ -72,7 +72,10 @@ html{
     position: relative;
     margin:0;
 }
-
+select#project_list{
+    padding: 1vw;
+    width: 20%;
+}
 .select_project{
     display: flex;
     flex-direction: column;
@@ -144,5 +147,12 @@ footer{
     .select_project,.select_action{
         padding: 2vw;
         width: 100%;
+    }
+    .tab_indent{
+        text-indent: 1vw;
+    }
+    select#project_list{
+        padding: 1vw;
+        width: 60%;
     }
 }

@@ -43,23 +43,25 @@
         </div>
     </section>
     <section class="big_section">
-        <h3 style="position: relative">View Projects and Actions</h3>
-        <section class="list">
+        <div class="tab_indent">
+            <h3 style="position: relative">View Projects and Actions</h3>
             <!-- projects and actions view -->
             <div class="project_list">
-                <h4 style="display: inline-block;">Select project: </h4>
+                <h4 style="display: inline;">Select project: </h4>
                 <select style="display: inline-block;" name="project_list" id="project_list"  onchange="showActions()">
                     <!-- <option value="Select">Select</option> -->
                     <!-- project list -->
                 </select>
             </div>
+        </div>
+        <section class="list">
             <ul id="actions_list" class="action_list">
                 <!-- <p>Action</p> -->
                 <!-- actions list -->
                 <!-- class of """actions_displayed""""" is use here -->
             </ul>
-        </section>  
-    </section>
+        </section>
+    </section>  
     <p>
         <button style="text-align: center;" type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
     </p>
