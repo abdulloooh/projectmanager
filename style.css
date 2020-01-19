@@ -8,6 +8,7 @@
     margin: auto;
     margin-top: 1vw;
     background-color: rgba(128, 128, 128,0.2);
+    
 }
 html{
     height: 100vh;
@@ -99,22 +100,25 @@ html{
     width: 100%;
     padding: 2vw;
     box-sizing: border-box;
+    /* margin-bottom: 50%; */
 }
 .reset{
     background-color: black;
     color: red;
     font-weight: bolder;
     /* margin:1vw 0; */
-    width:100px;
+    width:50px;
     height: 40px;
     position: absolute;
-    bottom: 1vw;
+    /* bottom: 1vw; */
     right: 1vw;
+    margin-top: 5vw;
 }
 footer{
     position: absolute;
-    bottom: 1vw;
+    /* bottom: 1vw; */
     left: 1vw;
+    margin-top: 5vw;
 }
 @media(max-width:792px){
     .list, .action_list,.add_new{

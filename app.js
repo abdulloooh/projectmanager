@@ -60,11 +60,11 @@ function treatProject(){
             project.value = "";
             break;
         case "delete":
-            console.log("here1");
+            // console.log("here1");
             //for delete
             //check if project exists
             if(checkProject(project.value) == false){
-                console.log("here2");
+                // console.log("here2");
                 alert("This project does not exist or has been deleted")
                 break;
             }
@@ -75,7 +75,7 @@ function treatProject(){
         default:
             break;
         }
-        console.log("here3");
+        // console.log("here3");
         projectStorage("save");
         updateClientProjects();
         showActions();
@@ -180,7 +180,7 @@ function showActions(){
     //get selected project
     let project = document.getElementById("project_list");
     let selected_project = project.options[project.selectedIndex].value; 
-    console.log(selected_project);
+    // console.log(selected_project);
     //clear view
     if(!storage){return}
     get_content = storage[selected_project];
