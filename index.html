@@ -10,7 +10,7 @@
     <title>Project Management</title>
 </head>
 <body class="container" onload="updateClientProjects();showActions();">
-    <h3 style="text-align: center;">Add/Delete/Mark Projects and Actions</h3>
+    <h3 style="text-align: center;margin-bottom: 2vw;">Add/Delete/Mark Projects and Actions</h3>
     <section class="add_new">
         <!-- Add new project -->
         <div class="select_project">
@@ -34,7 +34,7 @@
                 <!-- <option value="rename">Rename Actions</option> -->
             </select>
             <p>Select Project</p>
-            <select name="projects" id="projects" style="display: inline-block;">
+            <select name="projects" id="projects">
                 <option value="-choose a project-" style="opacity: 0.3;">-choose a project-</option>
                <!-- <option value="project A"> -->
             </select>
@@ -42,29 +42,30 @@
             <button type="button" id="add_action" onclick="treatAction()" class="save">Save</button>
         </div>
     </section>
-
-    <h3 style="text-align: center;">View Projects and Actions</h3>
-    <section class="list">
-        <!-- projects and actions view -->
-        <div class="project_list">
-            <h3 style="display: inline;">Select project: </h3>
-            <select name="project_list" id="project_list" style="display: inline-block;" onchange="showActions()">
-                <!-- <option value="Select">Select</option> -->
-                <!-- project list -->
-            </select>
-        </div>
-        <ol id="actions_list" class="action_list">
-            <!-- <p>Action</p> -->
-            <!-- actions list -->
-            <!-- class of """actions_displayed""""" is use here -->
-        </ol>
-    </section>  
+    <section class="big_section">
+        <h3 style="position: relative">View Projects and Actions</h3>
+        <section class="list">
+            <!-- projects and actions view -->
+            <div class="project_list">
+                <h4 style="display: inline-block;">Select project: </h4>
+                <select style="display: inline-block;" name="project_list" id="project_list"  onchange="showActions()">
+                    <!-- <option value="Select">Select</option> -->
+                    <!-- project list -->
+                </select>
+            </div>
+            <ul id="actions_list" class="action_list">
+                <!-- <p>Action</p> -->
+                <!-- actions list -->
+                <!-- class of """actions_displayed""""" is use here -->
+            </ul>
+        </section>  
+    </section>
+    <p>
+        <button style="text-align: center;" type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
+    </p>
     <footer>
-        <p>
-            <button style="text-align: center;" type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
-        </p>
-        <p>Created with &hearts; by Oladipo, Abdullah Akinwumi (@abdulloooh)</p>
-        <p>This project is still under development</p>
+        <p>Created with &hearts; by Oladipo, Abdullah<br>(@abdulloooh)</p>
+        <em>>>This project is still under development</em>
     </footer>
 
 <script src="app.js"></script>

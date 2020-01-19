@@ -180,7 +180,8 @@ function showActions(){
     //get selected project
     let project = document.getElementById("project_list");
     let selected_project = project.options[project.selectedIndex].value; 
-    //console.log(selected_project);
+    console.log(selected_project);
+    //clear view
     if(!storage){return}
     get_content = storage[selected_project];
     //console.log(get_content);
