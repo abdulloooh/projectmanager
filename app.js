@@ -26,6 +26,8 @@ function checkProject(x){
 }
 
 function treatProject(){
+    // feedback var
+    let fback = document.getElementById('saved1')
     storage = projectStorage("fetch");
     // //console.log(storage);
     if(storage == undefined){storage = {}}
@@ -34,13 +36,17 @@ function treatProject(){
     let project = document.getElementById("project");
     //avoid empty input
     if(project.value.trim() == ""){
-        alert("Arrrgh!   Empty input, Enter your project's name");
+        fback.innerText = "Arrgh!!! Empty input, enter your project's name"
+        fback.style.display = "block"
+        setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 3000)
         project.focus();
         return;
     }
     switch(opt.value){
         case "-select an option-":   //when no option is selected
-            alert("Please select an option for the project to continue");
+        fback.innerText = "Kindly select an option!!!"
+        fback.style.display = "block"
+        setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
             break;
         case "add":
             //for add
@@ -48,7 +54,10 @@ function treatProject(){
             let check = checkProject(project.value.trim());
             if (check == true){
                 //console.log('here');
-                alert("Project already exists");
+                  //feedback
+                fback.style.display = "block"
+                fback.innerText = "Project already exists!!!"
+                setTimeout(()=>{ fback.style.display='none';fback.innerText=""}, 2000)
                 project.focus();
                 return;
             }
@@ -57,6 +66,10 @@ function treatProject(){
             storage[project.value.trim()]= []
             //console.log(opt.value);
             //console.log(storage);
+            //feedback
+            fback.innerText = "Saved!!!"
+            fback.style.display = "block"
+            setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
             project.value = "";
             break;
         case "delete":
@@ -65,10 +78,18 @@ function treatProject(){
             //check if project exists
             if(checkProject(project.value) == false){
                 // console.log("here2");
-                alert("This project does not exist or has been deleted")
+                fback.innerText = "Thi sproject does not exits or has already been deleted"
+                fback.style.display = "block"
+                setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
                 break;
             }
             delete storage[project.value];
+            //feedback
+            fback = document.getElementById('saved1')
+            fback.innerText = "Deleted!!!"
+            fback.style.display = "block"
+            setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
+
             project.value = "";
             project.focus();
             break;
@@ -82,6 +103,7 @@ function treatProject(){
     }
 
     function treatAction(){
+        let fback = document.getElementById("saved2");
         storage = projectStorage("fetch");
         // updateClientProjects();
         //waht action to perform
@@ -92,20 +114,31 @@ function treatProject(){
         let optP = onProject.options[onProject.selectedIndex].value;  //selected project title
         //if no ptoject is selected, stop executing
         if(optP == "-choose"){
-            alert("Choose a project to process");
+            // fback = document.getElementById("#saved2")
+            fback.innerText = "Choose a project to process";
+            fback.style.display = "block"
+            setTimeout(()=>{ 
+                fback.style.display='none';
+                fback.innerText = ""}, 2000);
             return;
         }
         let action = document.getElementById("new_action");
         //prevent empty input
         if(action.value.trim() == ""){
-            alert("Arrrgh!   Empty input, Enter your Action's name");
+            fback.innerText = "Arrgh! Empty input, enter input for action";
+            fback.style.display = "block";
+            setTimeout(()=>{
+                 fback.style.display='none';
+                 fback.innerText = "";}, 2000)
             action.focus();
             return;
         }
         let getIndex = storage[optP].indexOf(action.value);
         switch(opt){
             case "-select an option-":  //if no option is selected
-                alert("Please select an action option to process");
+            fback.innerText = "Please select an option to process"
+            fback.style.display = "block"
+            setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
                 break;
             case "add":
                 //console.log(optP);
@@ -117,24 +150,38 @@ function treatProject(){
                 if(storage[optP]){
                     // let check_action = storage[optP].indexOf(action.value);
                     if(getIndex != -1){
-                        alert("This Action has already been added");
+                        fback.innerText = "The Action has already been added"
+                        fback.style.display = "block"
+                        setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
                         action.focus();
                         return;
                     }
                 }
                 storage[optP].push(action.value);
+                //feedback
+            // fback = document.getElementById('saved2')
+            fback.innerText = "Saved!!!"
+            fback.style.display = "block"
+            setTimeout(()=>{ fback.style.display='none'}, 2000)
                 action.value = "";
                 break;
             case "delete":
                 if(!storage[optP]){return}
                 //check if actions still exists
                 if(getIndex == -1){
-                    alert("Oops! This action does not exist or has already been deleted");
+                    fback.innerText = "Oops!!! The project does not exist or has already been deleted"
+                    fback.style.display = "block"
+                    setTimeout(()=>{ fback.style.display='none';fback.innerText = ""}, 2000)
                     action.focus();
                     return;
                 }
-                // let getIndex = storage[optP].indexOf(action.value); //get index of the action
-                storage[optP].splice(getIndex,1);  //remove the action
+                // remove the action
+                storage[optP].splice(getIndex,1);  
+                  //feedback
+                // fback = document.getElementById('saved2')
+                fback.innerText = "Deleted!!!"
+                fback.style.display = "block"
+                setTimeout(()=>{ fback.style.display='none';fback.innerText=""}, 2000)
                 action.value = "";
                 break;
             default:
@@ -144,9 +191,7 @@ function treatProject(){
     //console.log(projectStorage("fetch"));
     showActions();
     }
-    function clearActions(){
-
-    }
+   
     function updateClientProjects(){
         //clear the content first
         document.getElementById("project_list").innerHTML="<option  value='-choose a project- '' style='opacity: 0.3;''>-choose a project-</option>";
@@ -192,10 +237,38 @@ function showActions(){
     }   //If no content present
     //create contents to be added
    for(let  i=0;i<get_content.length;i++){
-    let element = document.createElement("li");
-    element.setAttribute("class","actions_displayed");
-    let attribute = document.createTextNode(get_content[i]);
-    element.appendChild(attribute);
-    document.getElementById("actions_list").appendChild(element);
+    // let element = document.createElement("li");
+    // element.setAttribute("class","actions_displayed");
+    // let attribute = document.createTextNode(get_content[i]);
+    // element.appendChild(attribute);
+    // document.getElementById("actions_list").appendChild(element);
+    document.getElementById("actions_list").innerHTML+="<p class = 'act'> <input type='checkbox' class='check' id='' onchange=mark_action()> <span class='content'>"+get_content[i]+"</span></p>"
    }
+
+}
+
+function mark_action(){ //if action is checked
+    let check = document.getElementsByClassName('check');
+    let act = document.getElementsByClassName("act");
+    let content = document.getElementsByClassName("content");
+    for(let i =0;i<check.length;i++){
+        storage = projectStorage("fetch");
+        // console.log(storage)
+        if (check[i].checked == true){
+            //get the concerned project
+            let project = document.getElementById("project_list");
+            let selected_project = project.options[project.selectedIndex].value; 
+            //get content of span tag which is the action to be deleted before it is deleted and get its index
+            let save_content = content[i].innerText;
+            let getIndex = storage[selected_project].indexOf(save_content)
+            console.log(selected_project)
+            //first remove it from display 
+            setTimeout(()=>act[i].style.display= "none" , 1000);
+            //then delete it from storage
+            storage[selected_project].splice(getIndex,1);
+            //update storage
+            projectStorage("save");
+            // showActions();
+        }
+}
 }

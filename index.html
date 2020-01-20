@@ -10,7 +10,7 @@
     <title>Project Management</title>
 </head>
 <body class="container" onload="updateClientProjects();showActions();">
-    <h3 style="text-align: center;margin-bottom: 2vw;">Add/Delete/Mark Projects and Actions</h3>
+    <h3 style="text-align: center;margin-bottom: 2vw;">Add/Delete Projects and Actions</h3>
     <section class="add_new">
         <!-- Add new project -->
         <div class="select_project">
@@ -21,7 +21,7 @@
                 <option value="delete">Delete Project</option>
             </select>
             <input type="text" name="new_project" id="project" placeholder="Enter New Project to create or Existing  or mark completed">
-            <button type="button" id="add_project" onclick="treatProject()" class="save">Save</button>
+            <button  type="button" id="add_project" onclick="treatProject()" class="save">Save</button ><span style="display: none;" id="saved1"></span>
         </div>
         <!-- Add new Action -->
         <div class="select_action">
@@ -39,7 +39,7 @@
                <!-- <option value="project A"> -->
             </select>
             <input type="text" name="new_action" id="new_action" placeholder="Enter new action or existing to delete or mark done">
-            <button type="button" id="add_action" onclick="treatAction()" class="save">Save</button>
+            <button type="button" id="add_action" onclick="treatAction()" class="save">Save</button><span id="saved2"></span>
         </div>
     </section>
     <section class="big_section">
@@ -59,16 +59,20 @@
                 <!-- <p>Action</p> -->
                 <!-- actions list -->
                 <!-- class of """actions_displayed""""" is use here -->
+                <!-- <p>
+                    <input type="checkbox" name="" id="" style=" padding: 0;">
+                    <span>afde hgoes to chsk</span>
+                </p> -->
             </ul>
         </section>
     </section>  
     <p>
         <button style="text-align: center;" type="button" class="reset" id="reset" onclick="localStorage.removeItem('userProject');window.location.reload()"> Reset</button>
     </p>
-    <footer>
+    <!-- <footer>
         <p>Created with &hearts; by Oladipo, Abdullah<br>(@abdulloooh)</p>
-        <em>>>This project is still under development</em>
-    </footer>
+        <em>This project is still under development</em>
+    </footer> -->
 
 <script src="app.js"></script>
 </body>

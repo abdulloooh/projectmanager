@@ -95,6 +95,7 @@ select#project_list{
     height: 30px;
     vertical-align: bottom;
     margin-right: 1vw;
+    padding: 0;
 }
 .action_list{
     color: black;
@@ -127,6 +128,10 @@ footer{
     /* bottom: 1vw; */
     left: 1vw;
     margin-top: 5vw;
+}
+#saved1,#saved2{
+    color: rgba(255, 0, 0,0.7);
+    margin-left: 1vw;
 }
 @media(max-width:792px){
     .list, .action_list,.add_new{
