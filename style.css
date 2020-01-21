@@ -75,6 +75,7 @@ html{
     /* width: fit-content; */
     position: relative;
     margin:0;
+    
 }
 select#project_list{
     padding: 1vw;
@@ -133,6 +134,28 @@ footer{
     color: rgba(255, 0, 0,0.7);
     margin-left: 1vw;
 }
+#feedback{
+    margin: 0;
+  position: fixed;
+  top: 55%;
+  right: -20px;
+  background-color: grey;
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  padding: 0.8vw;
+  color: darkred;
+  margin-block-start: 0;
+  margin-block-end: 0;
+  font-weight: 600;
+}
+#feedback a{
+    text-decoration: none;
+    display: inline-block;
+}
+#feedback:hover{
+    background-color: inherit;
+}
 @media(max-width:792px){
     .list, .action_list,.add_new{
         border: none;
@@ -157,6 +180,7 @@ footer{
     .select_project,.select_action{
         padding: 2vw;
         width: 100%;
+        margin-bottom: 5vw;
     }
     .tab_indent{
         text-indent: 1vw;
@@ -165,4 +189,17 @@ footer{
         padding: 1vw;
         width: 60%;
     }
-}
+    
+    }
+    @media(max-width:471px){
+        #feedback{
+            top:53%;
+            right:-6%;
+        }
+    }
+                            @media(max-width:360px){
+                                #feedback{
+                                    top:52%;
+                                    right: -7%;
+                            }
+                        }
